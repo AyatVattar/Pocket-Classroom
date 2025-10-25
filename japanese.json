@@ -1,0 +1,31 @@
+{
+  "id": "capsule-japanese",
+  "meta": {
+    "title": "Japanese Basics",
+    "subject": "Japanese",
+    "level": "Beginner",
+    "description": "Learn basic Japanese phrases, numbers, and common expressions.",
+    "progress": 0
+  },
+  "notes": "Japanese is spoken by over 125 million people. It uses three writing systems: Hiragana, Katakana, and Kanji.",
+  "flashcards": [
+    { "front": "Hello", "back": "こんにちは (Konnichiwa)" },
+    { "front": "Thank you", "back": "ありがとう (Arigatou)" },
+    { "front": "Yes / No", "back": "はい (Hai) / いいえ (Iie)" },
+    { "front": "Good morning", "back": "おはよう (Ohayou)" },
+    { "front": "Good night", "back": "おやすみ (Oyasumi)" }
+  ],
+  "quizQuestions": [
+    {
+      "question": "How do you say 'Thank you' in Japanese?",
+      "options": ["Konnichiwa", "Ohayou", "Arigatou", "Oyasumi"],
+      "correct": 2
+    },
+    {
+      "question": "Which of these means 'Good night'?",
+      "options": ["Oyasumi", "Ohayou", "Hai", "Iie"],
+      "correct": 0
+    }
+  ],
+  "updatedAt": "2025-10-25T00:00:00Z"
+}

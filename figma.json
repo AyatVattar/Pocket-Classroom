@@ -1,0 +1,31 @@
+{
+    "id": "capsule-figma",
+    "meta": {
+      "title": "Figma Fundamentals",
+      "subject": "Figma",
+      "level": "Beginner",
+      "description": "Learn how to use Figma for UI/UX design — frames, components, and prototyping.",
+      "progress": 0
+    },
+    "notes": "Figma is a browser-based design tool used for creating user interfaces and prototypes collaboratively.",
+    "flashcards": [
+      { "front": "Frame Tool", "back": "Shortcut: F" },
+      { "front": "Create Component", "back": "Shortcut: Ctrl + Alt + K" },
+      { "front": "Group Layers", "back": "Shortcut: Ctrl + G" },
+      { "front": "Duplicate Object", "back": "Shortcut: Ctrl + D" },
+      { "front": "Preview Prototype", "back": "Shortcut: Ctrl + Enter" }
+    ],
+    "quizQuestions": [
+      {
+        "question": "Which shortcut creates a new frame in Figma?",
+        "options": ["Ctrl + G", "F", "Ctrl + Alt + K", "Ctrl + Enter"],
+        "correct": 1
+      },
+      {
+        "question": "What does 'Ctrl + D' do in Figma?",
+        "options": ["Group layers", "Duplicate object", "Preview prototype", "Create component"],
+        "correct": 1
+      }
+    ],
+    "updatedAt": "2025-10-25T00:00:00Z"
+  }

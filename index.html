@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>PocketClassroom</title>
+
+  <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
+
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" />
+
+  <!-- Font -->
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&display=swap" rel="stylesheet">
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="style.css" />
+  
+
+  <link rel="icon" href="icon.png">
+</head>
+<body>
+
+  <!-- theme toggle -->
+  <button id="themeToggle" class="theme-toggle" aria-label="toggle theme">
+    <i class="fa-solid fa-moon"></i>
+  </button>
+
+  <!-- mobile menu button -->
+  <button class="btn btn-primary d-lg-none position-fixed top-0 start-0 m-3"
+          type="button" data-bs-toggle="offcanvas" data-bs-target="#mobileSidebar" aria-controls="mobileSidebar">
+    <i class="fa-solid fa-bars"></i>
+  </button>
+
+  <!-- desktop sidebar -->
+  <nav class="d-none d-lg-flex flex-column bg-body-tertiary p-3 vh-100 position-fixed sidebar shadow-sm">
+    <h4 id="sidebar-title" class="mb-4 text-center fw-bold">
+      Pocket <br>Classroom
+    </h4>
+    <ul class="nav nav-pills flex-column mb-auto">
+      <li class="nav-item mb-2"><a href="#/library" class="nav-link"> <i class="fa-solid fa-book me-2"></i>Library</a></li>
+      <li class="nav-item mb-2"><a href="#/author" class="nav-link"> <i class="fa-solid fa-pen-nib me-2"></i>Author</a></li>
+      <li class="nav-item mb-2"><a href="#/learn" class="nav-link"> <i class="fa-solid fa-brain me-2"></i>Learn</a></li>
+    </ul>
+    
+  </nav>
+
+  <!-- search bar -->
+  <div class="search-bar position-fixed top-0 start-50 translate-middle-x d-flex align-items-center mt-3 px-3 py-2 rounded-3 shadow-sm" style="z-index:1000; width:50%;">
+    <i class="fa-solid fa-magnifying-glass me-2 text-muted"></i>
+    <input id="librarySearch" type="text" class="form-control border-0 shadow-none" placeholder="Search capsules by title or subject...">
+  </div>
+
+  <!-- mobile offcanvas -->
+  <div class="offcanvas offcanvas-start text-bg-light" tabindex="-1" id="mobileSidebar">
+    <div class="offcanvas-header border-buttom">
+      <h5 class="offcanvas-title fw-bold text-uppercase">PocketClassroom</h5>
+      <button type="button" class="btn-close" data-bs-dismiss="offcanvas"></button>
+    </div>
+    <div class="offcanvas-body px-4">
+      <ul class="nav nav-pills flex-column mb-auto">
+        <li class="nav-item mb-3"><a href="#/library" class="nav-link d-flex align-items-center gap-2" data-bs-dismiss="offcanvas"> <i class="fa-solid fa-book"></i>Library
+        </a></li>
+        <li class="nav-item mb-3"><a href="#/author" class="nav-link d-flex align-items-center gap-2" data-bs-dismiss="offcanvas"><i class="fa-solid fa-pen-nib"></i> Author</a></li>
+        <li class="nav-item mb-3"><a href="#/learn" class="nav-link d-flex align-items-center gap-2" data-bs-dismiss="offcanvas"> <i class="fa-solid fa-brain"></i>Learn</a></li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- Library -->
+  <section id="library" class="section" style="margin-left:250px; padding-top:90px;">
+    <div class="container">
+      <div class="d-flex align-items-center justify-content-between mb-3">
+        <p class="text-muted small mb-0">Create, import, export, and manage learning capsules.</p>
+        <div class="d-flex gap-2">
+          <button id="btnNewCapsule" class="btn btn-info">New Capsule</button>
+          <button id="btnImport" class="btn btn-outline-info">Import JSON</button>
+        </div>
+      </div>
+      
+        <!-- Calendar -->
+        <div id="studyCalendar" class="calendar-section" data-tooltip="Mark your study days here!">
+          <div class="calendar-header">
+            <h4 id="calendarTitle">October 2025</h4>
+            <div>
+              <button id="prevMonth" class="btn btn-sm btn-outline-secondary">‹</button>
+              <button id="nextMonth" class="btn btn-sm btn-outline-secondary">›</button>
+            </div>
+          </div>
+          <div id="calendarDays" class="calendar-grid"></div>
+        </div>
+
+      
+        <!-- Capsules Grid -->
+        <div id="capsulesGrid" class="capsules-grid mt-4"></div>
+      </div>
+      <div id="capsulesGrid" class="capsules-grid mt-4"></div>
+  </section>
+
+  <!-- Author -->
+  <section id="author" class="section" style="margin-left:250px; padding-top:90px; display:none;">
+    <div class="container">
+      <form id="authorForm">
+        <div class="mb-4 card-panel">
+          <h3>Capsule Info</h3>
+          <div class="mb-3">
+            <label class="form-label">Title</label>
+            <input id="capsuleTitle" class="form-control" placeholder="e.g.Intro to Web Basics" />
+          </div>
+          <div class="mb-3">
+            <label class="form-label">Subject</label>
+            <input id="capsuleSubject" class="form-control" placeholder="e.g.Web"/>
+          </div>
+          <div class="mb-3">
+            <label class="form-label">Level</label>
+            <select id="capsuleLevel" class="form-select">
+              <option value="">Select Level...</option>
+              <option>Beginner</option>
+              <option>Intermediate</option>
+              <option>Advanced</option>
+            </select>
+<br>
+            <div class="mb-3">
+              <label class="form-label">Description</label>
+              <textarea id="capsuleDescription" class="form-control" rows="2" placeholder="1-2 sentences about this capsule..."></textarea>
+            </div>
+          </div>
+        </div>
+
+        <div class="mb-4 card-panel">
+          <h3>Notes</h3>
+          <textarea id="capsuleNotes" class="form-control" rows="5" placeholder="Write your learning notes..."></textarea>
+        </div>
+
+        <div class="mb-4 card-panel">
+          <h3>Flashcards</h3>
+          <div id="flashcardsContainer" class="cards-row"></div>
+          <button type="button" id="addFlashcard" class="btn btn-outline-info mt-3">+ ADD</button>
+        </div>
+
+        <div class="mb-4 card-panel">
+          <h3>Quiz</h3>
+          <div id="quizContainer" class="quiz-item"></div>
+          <button type="button" id="addQuiz" class="btn btn-outline-info mt-3">+ ADD</button>
+        </div>
+
+        <div class="mt-4 text-end">
+          <button id="btnSaveCapsule" type="submit" class="btn btn-info px-4">Save Capsule</button>
+        </div>
+      </form>
+    </div>
+  </section>
+
+ <!-- ===== Learn ===== -->
+<section id="learn" class="section" style="margin-left:250px; padding-top:90px; display:none;">
+  <div class="container">
+    <div id="learnContent" class="card-panel">
+      <div class="d-flex justify-content-between align-items-center mb-3 gap-3 flex-wrap">
+        <div style="flex:1; min-width:220px;">
+          <select id="capsuleSelect" class="form-select">
+            <option value="">Select a capsule...</option>
+          </select>
+        </div>
+        
+      </div>
+
+      <h3 id="learnTitle" class="mb-2">Select a capsule from library to start learning.</h3>
+      <p id="learnMeta" class="text-muted mb-3"></p>
+
+      <div id="learnPreview" class="learn-section-block card-panel">
+      </div>
+      <div class="learn-buttons" style="min-width:240px; display:flex; gap:8px; align-items:center;">
+        <button id="openNotesBtn" class="btn btn-sm btn-outline-secondary">Notes</button>
+        <button id="openFlashBtn" class="btn btn-sm btn-outline-secondary">Flashcards</button>
+        <button id="openQuizBtn" class="btn btn-sm btn-outline-secondary">Quiz</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- ===== Modals: Notes / Flash / Quiz ===== -->
+  <div id="notesModal" class="lc-modal" aria-hidden="true">
+    <div class="lc-modal-content" role="dialog" aria-modal="true" aria-labelledby="notesTitle">
+      <button class="lc-close" aria-label="close">&times;</button>
+      <h4 id="notesTitle">Notes</h4>
+      <div id="notesModalBody" style="white-space:pre-wrap; margin-top:8px;"></div>
+    </div>
+  </div>
+
+  <div id="flashModal" class="lc-modal" aria-hidden="true">
+    <div class="lc-modal-content" role="dialog" aria-modal="true" aria-labelledby="flashTitle">
+      <button class="lc-close" aria-label="close">&times;</button>
+      <h4 id="flashTitle">Flashcards</h4>
+      <div id="flashCardCount" class="small text-muted mt-1"></div>
+      <div id="flashCardWrap" class="mt-3"></div>
+
+      <div class="d-flex justify-content-between align-items-center mt-3">
+        <div>
+          <button id="flashPrev" class="btn btn-sm btn-outline-secondary">Prev</button>
+          <button id="flashNext" class="btn btn-sm btn-outline-secondary ms-2">Next</button>
+        </div>
+        <div>
+          <button id="markKnown" class="btn btn-sm btn-success btn-known">√ Known</button>
+          <button id="markUnknown" class="btn btn-sm btn-outline-warning ms-2 btn-unknown"> ⋉ Unknown</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div id="quizModal" class="lc-modal" aria-hidden="true">
+    <div class="lc-modal-content" role="dialog" aria-modal="true" aria-labelledby="quizTitle">
+      <button class="lc-close" aria-label="close">&times;</button>
+      <h4 id="quizTitle">Quiz</h4>
+      <div id="quizProgress" class="small text-muted mt-1"></div>
+      <div id="quizQuestionWrap" class="mt-3"></div>
+      <div class="d-flex justify-content-between align-items-center mt-3">
+        <div>
+          <button id="quizPrev" class="btn btn-sm btn-outline-secondary">Prev</button>
+          <button id="quizNext" class="btn btn-sm btn-outline-secondary ms-2">Next</button>
+        </div>
+        <div>
+          <button id="quizSubmit" class="btn btn-sm btn-primary">Submit Answer</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+  <!-- bootstrap bundle -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
+
+  <!-- main module -->
+  <script type="module" src="js/main.js"></script>
+</body>
+</html>

@@ -1,0 +1,36 @@
+{
+    "id": "capsule-htmlcss-001",
+    "meta": {
+      "title": "HTML & CSS Fundamentals",
+      "subject": "Web Design",
+      "level": "Beginner",
+      "progress": 0
+    },
+    "notes": "HTML (HyperText Markup Language) is the structure of a webpage. CSS (Cascading Style Sheets) adds style and layout to that structure. Together, they form the foundation of all modern websites.",
+    "flashcards": [
+      { "front": "What does HTML stand for?", "back": "HyperText Markup Language" },
+      { "front": "What is CSS used for?", "back": "To style and layout web pages" },
+      { "front": "Which tag contains the visible content of a webpage?", "back": "<body>" },
+      { "front": "How do you link a CSS file in HTML?", "back": "<link rel='stylesheet' href='style.css'>" },
+      { "front": "Which CSS property changes text color?", "back": "color" }
+    ],
+    "quizQuestions": [
+      {
+        "question": "Which HTML element is used to define a paragraph?",
+        "options": ["<para>", "<p>", "<text>", "<h1>"],
+        "correct": 1
+      },
+      {
+        "question": "Which CSS property is used to change the background color?",
+        "options": ["background", "bgcolor", "color", "fill"],
+        "correct": 0
+      },
+      {
+        "question": "Where should the <link> tag for CSS be placed?",
+        "options": ["Inside <body>", "At the end of document", "Inside <head>", "Anywhere"],
+        "correct": 2
+      }
+    ],
+    "updatedAt": "2025-10-23T00:00:00Z",
+    "schema": "pocket-classroom/v2"
+  }
